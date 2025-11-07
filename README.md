@@ -1,6 +1,6 @@
 # audio-input-route
 
-An Expo module for detecting audio input routes on iOS devices. This module allows you to identify which audio input device is currently being used (built-in microphone, Bluetooth headset, wired headphones, etc.) and listen for audio route changes.
+An Expo module for detecting audio input routes on iOS and Android devices. This module allows you to identify which audio input device is currently being used (built-in microphone, Bluetooth headset, wired headphones, etc.) and listen for audio route changes.
 
 ## Installation
 
@@ -19,6 +19,8 @@ After installation, rebuild your app:
 ```bash
 npx expo prebuild
 npx expo run:ios
+# or
+npx expo run:android
 ```
 
 ## Features
@@ -26,6 +28,7 @@ npx expo run:ios
 - 🎤 Detect current audio input route (microphone type)
 - 🔄 Listen for audio route change events
 - 📱 iOS support with AVAudioSession integration
+- 🤖 Android support with AudioManager integration
 - 🎧 Support for Bluetooth, wired, and built-in microphones
 
 ## Usage
@@ -73,15 +76,25 @@ Returns a subscription object with a `remove()` method to unsubscribe.
 
 ## Common Port Types
 
+### iOS
 - `MicrophoneBuiltIn` - Built-in device microphone
 - `BluetoothHFP` - Bluetooth hands-free profile
 - `BluetoothA2DP` - Bluetooth A2DP
 - `MicrophoneWired` - Wired headset microphone
 - `HeadsetMic` - Headset microphone
 
+### Android
+- `MicrophoneBuiltIn` - Built-in device microphone
+- `BluetoothSCO` - Bluetooth SCO (voice calls)
+- `BluetoothA2DP` - Bluetooth A2DP (high quality audio)
+- `MicrophoneWired` - Wired headset microphone
+- `USBDevice` - USB audio device
+- `USBHeadset` - USB headset
+
 ## Requirements
 
 - iOS 13.0 or higher
+- Android 6.0 (API 23) or higher
 - Expo SDK 47 or higher
 - React Native project with Expo modules
 
