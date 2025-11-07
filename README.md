@@ -98,6 +98,26 @@ Returns a subscription object with a `remove()` method to unsubscribe.
 - Expo SDK 47 or higher
 - React Native project with Expo modules
 
+### Permissions
+
+#### iOS
+Add to your `app.json` or `Info.plist`:
+```json
+{
+  "expo": {
+    "ios": {
+      "infoPlist": {
+        "NSMicrophoneUsageDescription": "This app needs access to the microphone to detect audio input routes."
+      }
+    }
+  }
+}
+```
+
+#### Android
+The required permission is automatically added via the module's AndroidManifest.xml:
+- `MODIFY_AUDIO_SETTINGS`
+
 ## License
 
 MIT © moritouch

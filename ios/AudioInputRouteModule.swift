@@ -84,7 +84,11 @@ public class AudioInputRouteModule: Module {
     }
 
     OnStopObserving {
-      NotificationCenter.default.removeObserver(self)
+      NotificationCenter.default.removeObserver(
+        self,
+        name: AVAudioSession.routeChangeNotification,
+        object: nil
+      )
     }
   }
 
